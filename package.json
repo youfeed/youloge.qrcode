@@ -1,0 +1,40 @@
+{
+  "name": "youloge.qrcode",
+  "private": false,
+  "version": "2.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Youloge",
+  "description": "youloge.qrode mini QRCode library",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "youloge",
+    "qrcode",
+    "mini-qrcode",
+    "fast-qrcode"
+  ],
+  "main": "./dist/youloge.qrcode.umd.js",
+  "module": "./dist/youloge.qrcode.es.js",
+  "unpkg": "dist/youloge.qrcode.umd.js",
+  "jsdelivr": "dist/youloge.qrcode.umd.js",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./dist/youloge.qrcode.es.js",
+    "require": "./dist/youloge.qrcode.umd.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youfeed/youloge.qrcode.git"
+  },
+  "devDependencies": {
+    "vite": "^4.4.11"
+  }
+}
