@@ -35,3 +35,18 @@ youloge.qrcode('TEXT',options={}).then(canvas=>{
 }
 
 ```
+
+
+### 增加一个生成`img.src 示例`
+
+```js
+youloge.qrcode(qrcode).then(canvas=>{
+  canvas.toBlob((blob)=>{
+    var file = new Blob([blob], {type: "image/png;charset=utf-8"});
+    var src = URL.createObjectURL(file);
+    document.querySelector("img").src = src
+  },"image/png", 0.95)
+})
+```
+
+~ 就这！
