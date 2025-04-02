@@ -1,7 +1,7 @@
 {
   "name": "youloge.qrcode",
   "private": false,
-  "version": "2.0.1",
+  "version": "2.1.0",
   "type": "module",
   "license": "MIT",
   "author": "Youloge",
@@ -29,7 +29,6 @@
     "import": "./dist/youloge.qrcode.es.js",
     "require": "./dist/youloge.qrcode.umd.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/youfeed/youloge.qrcode.git"

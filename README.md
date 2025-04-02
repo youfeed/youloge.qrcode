@@ -1,52 +1,68 @@
-# Youloge.Qrcode 纯二维码生成库  
+# Youloge.Qrcode 二维码生成库 - 无依赖 超级小
 
-```js
-vite v4.5.0 building for production...
-✓ 1 modules transformed.
-dist/youloge.qrcode.es.js  20.41 kB │ gzip: 5.45 kB
-dist/youloge.qrcode.umd.js  14.39 kB │ gzip: 4.84 kB
-✓ built in 171ms
-```
-### 超级小 `仅不到5Kb` 大小，异步返回一个`canvas 对象`：只要二维码 
+### 超级小 `仅不到5Kb` 大小，异步返回一个`canvas 对象`：可直接页面展示或导出图片
 
-- 💡 组件库有作用域前缀`youloge` 
-- ⚡️ 建议直接引入CDN 即可使用 14.39 kB │ gzip: 4.84 kB
+- 💡 last building 20250402
+- ⚡️ 建议直接 CDN 引入即可使用 `14.34 kB` │ `gzip: 4.90 kB`
 - 🛠️ `https://unpkg.com/youloge.qrcode`
 - 📦 `https://cdn.jsdelivr.net/npm/youloge.qrcode`
-- 🔩 调用 `youloge.qrcode(TEXT)`
+- 🔩 CDN 引入时 调用 `youloge.qrcode(TEXT)` 作用域前缀`youloge`
 - 🔑
 
-```js
-youloge.qrcode('TEXT',options={}).then(canvas=>{
-  document.body.appendChild(canvas)
-}).catch(err=>{
-  console.log(err)
-})
-```
-### `options` 可选参数
-```js
-{
-  text: '',
-  width: 256,
-  height: 256,
-  typeNumber: -1,
-  background: "#ffffff",
-  foreground: "#000000",
-}
+### 可选配置参数 `options`
 
+```js
+let options = {
+  width: 256, // 可选:默认256
+  height: 256, // 可选:默认256
+  level: "M", // 可选：默认(M) L M Q H 纠错等级  7% 15% 25% 30%
+  background: "#ffffff", // 可选:默认 #ffffff
+  foreground: "#000000", // 可选:默认 #000000
+};
 ```
 
+### CDN 引入使用示例
+
+```js
+youloge
+  .qrcode("TEXT", options)
+  .then((canvas) => {
+    document.body.appendChild(canvas);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
+
+### NPM 安装使用示例
+
+```js
+// ES6 default 直接使用
+import YouQrcode from "youloge.qrcode";
+
+YouQrcode("TEXT", options)
+  .then((canvas) => {
+    document.body.appendChild(canvas);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
 
 ### 增加一个生成`img.src 示例`
 
 ```js
-youloge.qrcode(qrcode).then(canvas=>{
-  canvas.toBlob((blob)=>{
-    var file = new Blob([blob], {type: "image/png;charset=utf-8"});
-    var src = URL.createObjectURL(file);
-    document.querySelector("img").src = src
-  },"image/png", 0.95)
-})
+youloge.qrcode("", options).then((canvas) => {
+  canvas.toBlob(
+    (blob) => {
+      var file = new Blob([blob], { type: "image/png;charset=utf-8" });
+      var src = URL.createObjectURL(file);
+      document.querySelector("img").src = src;
+    },
+    "image/png",
+    0.95
+  );
+});
 ```
 
-~ 就这！
+~ 就这！ 简单
